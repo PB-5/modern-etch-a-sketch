@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+  }
+
+body {
+  background-color: rgb(251, 235, 255);
+  margin-bottom: 100px;
+}
+
+.header {
+  padding: 30px 0;
+}
+
+.title {
+  text-align: center;
+  font-size: 60px;
+  line-height: 1.2;;
+}
+
+.sub-title {
+  text-align: center;
+  letter-spacing: 26px;
+  margin-left: 24px;
+}
+
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-panel label {
+  display: block;
+  margin: 1em auto;
+  white-space: nowrap;
+}
+
+.settings-panel #color-picker {
+  cursor: pointer;
+  height: 100px;
+  width: 250px;
+  border-radius: 0.5em;
+}
+
+.settings-panel input[type='color'] {
+  cursor: pointer;
+  padding: 3px;
+  background-color: white;
+  border-radius: 0.2em;
+}
+
+#randomBTN, #eraserBTN, #clearBTN, #gridBTN {
+  height: 100px;
+  width: 250px;
+  align-items: center;
+}
