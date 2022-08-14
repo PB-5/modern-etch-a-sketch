@@ -8,15 +8,17 @@
 </head>
 
   <body>
-    <main>
+
          <header class="header">
               <h1 class="title">Etch-a-Sketch</h1>
-              <h4 class="sub-title">MODERNISED</h4>
+           <!-- <h4 class="sub-title">MODERNISED</h4> -->
          </header>
-    <section>
+  
+  <!-- flexbox settings column and put a grid next to it with a gap -->
+  <main class="main">     
         <div class="settings-panel">
               <label for="color-picker" title="Select Color">
-                  <input id="color-picker" type="color" value="black">
+                  <input id="color-picker" type="color" value="#000000">
               </label>
               <label for="randomBTN" title="Random Colors">
                   <button id="randomBTN" class><img src="buttons/rainbow-btn.png"></button> 
@@ -31,25 +33,19 @@
                   <button id="gridBTN" class>GRID</button>
               </label>
         </div>
-    </section>
 
+        <div class="grid-container">
+            <div id="grid" class="grid">
+                <div class="canvas-size-display"></div>
+                <input id="gridSlider" type="range" value="16" min="1" max="64">
+            </div>     
+        </div>
+        
+  </main>
 
+  <div class="footer">
+    <span>Created by Patryk Berkowicz</span>
+  </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </main>
   </body>
 </html>
