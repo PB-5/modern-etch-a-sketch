@@ -1,3 +1,9 @@
+
+ @font-face {
+  font-family: 'KG Second Chances Sketch';
+  src: url('./fonts/KGSecondChancesSketch.ttf') format('truetype');
+}
+
 *,
 *::before,
 *::after {
@@ -12,7 +18,7 @@ html {
   }
 
 body {
-  background-color: rgb(251, 235, 255);
+  background-color: #4980f718;
   margin-bottom: 100px;
 }
 
@@ -22,14 +28,32 @@ body {
 
 .title {
   text-align: center;
-  font-size: 60px;
-  line-height: 1.2;;
+  font-size: 46px;
+  margin-bottom: 10px;
+  margin-left: 25px;
+  color: rgba(255, 6, 6, 0.932);
+  font-family: 'KG Second Chances Sketch';
+  letter-spacing: 4px;
 }
 
+/*
 .sub-title {
   text-align: center;
-  letter-spacing: 26px;
-  margin-left: 24px;
+  letter-spacing: 45px;
+  margin-left: 74px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 900;
+  text-shadow: -0.07em 0.05em 0.08em #000; 
+}
+*/
+
+.main {
+  margin-top: -30px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  justify-content: center;
+  max-width: 1700px;
 }
 
 .settings-panel {
@@ -39,14 +63,14 @@ body {
 
 .settings-panel label {
   display: block;
-  margin: 1em auto;
+  margin: 1.35em auto;
   white-space: nowrap;
 }
 
 .settings-panel #color-picker {
   cursor: pointer;
-  height: 100px;
-  width: 250px;
+  height: 75px;
+  width: 200px;
   border-radius: 0.5em;
 }
 
@@ -58,7 +82,128 @@ body {
 }
 
 #randomBTN, #eraserBTN, #clearBTN, #gridBTN {
-  height: 100px;
-  width: 250px;
+  height: 75px;
+  width: 200px;
   align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.5em;
+  cursor: pointer;
 }
+
+#clearBTN, #gridBTN {
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+}
+
+/** GRID **/
+
+.grid {
+  display: grid;
+  height: 550px;
+  width: 550px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: crosshair;
+}
+
+/** CANVAS SLIDER **/
+
+input[type='range'] {
+  margin-top: 590px;
+  -webkit-appearance: none; 
+  cursor: grab;
+  display: flex;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 25px;
+  background: rgb(255, 255, 255); 
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 25px;
+  margin-top: -8px;
+  background: rgb(0, 0, 0); 
+}
+
+/** FOOTER **/
+
+.footer {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* text-shadow: -0.05em 0.05em 0.1em #000; */
+  margin: 0;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 15px;
+  font-size: 12px;
+}
+
+@media (max-width: 1200px) {
+  .main {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 850px) {
+  .main {
+    gap: 50px;
+  }
+
+  .settings-panel {
+    width: 150px;
+    gap: 16px;
+  }
+
+  .grid {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 650px) {
+  .title {
+    font-size: 25px;
+    margin-left: 0px;
+  }
+
+  .sub-title {
+    font-size: 10px;
+    margin-left: 10px;
+    letter-spacing: 25px;
+    margin-left: 20px
+  }
+
+  #gridSlider {
+    margin-top: 330px;
+  }
+
+  .settings-panel {
+    margin-top: 20px;
+    width: 200px;
+    gap: 20px;
+  }
+
+  .main {
+    flex-direction: column-reverse;
+  }
+
+  .grid {
+    width: 300px;
+    height: 300px;
+  }
+} 
