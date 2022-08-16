@@ -72,31 +72,130 @@ body {
   height: 75px;
   width: 200px;
   border-radius: 0.5em;
+  padding: 5px;
 }
 
 .settings-panel input[type='color'] {
   cursor: pointer;
   padding: 3px;
   background-color: white;
-  border-radius: 0.2em;
+  border-radius: 100px;
 }
 
-#randomBTN, #eraserBTN, #clearBTN, #gridBTN {
+.randomBTN, .eraserBTN, .clearBTN, .gridBTN {
   height: 75px;
   width: 200px;
   align-items: center;
   background-color: white;
   border: 1px solid black;
-  border-radius: 0.5em;
+  border-radius: 10px;
   cursor: pointer;
 }
 
-#clearBTN, #gridBTN {
+.clearBTN, .gridBTN {
   font-size: 16px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 900;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.6px;
   cursor: pointer;
+}
+
+
+.eraserBTN:active, .clearBTN:active, .gridBTN:active {
+  background-color: rgb(247, 244, 244);
+}
+
+#color-picker:hover,
+input[type='color']:hover {
+  transform: scale(1.05);
+}
+
+input[type='color']:active {
+  transition: transform 0.05s ease-in-out;
+  transform: scale(1);
+}
+
+.eraserBTN:hover, .clearBTN:hover, .gridBTN:hover, .randomBTN:hover {
+  transform: scale(1.05);
+}
+
+.eraserBTN:active, .clearBTN:active, .gridBTN:active {
+  transition: transform 0.05s ease-in-out;
+  transform: scale(1);
+}
+
+/** RAINBOW BUTTON HOVER **/
+
+.randomBTN {
+  width: 200px;
+  font-size: 20px;
+  height: 75px;
+  border: none;
+  outline: none;
+  background: #ffffff;
+  color: rgb(39, 31, 31);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.randomBTN::before {
+  position: absolute;
+  content: "";
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  left: -1px;
+  top: -1px;
+  background: linear-gradient(
+    124deg,
+    #eb391e,
+    #e81d1d,
+    #e8b71d,
+    #e3e81d,
+    #1de840,
+    #1ddde8,
+    #2b1de8,
+    #dd00f3,
+    #dd00f3
+  );
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  animation: move 25s linear infinite;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.randomBTN:hover::before {
+  opacity: 1;
+}
+
+.randomBTN::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 /** GRID **/
@@ -124,15 +223,19 @@ input[type='range']::-webkit-slider-runnable-track {
   border: 1px solid black;
   border-radius: 25px;
   background: rgb(255, 255, 255); 
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
 input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
+  border: 1px solid #00001E;
   width: 24px;
   height: 24px;
   border-radius: 25px;
   margin-top: -8px;
-  background: rgb(0, 0, 0); 
+  border: 1px solid black;
+  background: rgb(255, 255, 255); 
+  box-shadow: 1px 2px 4px #000000, 0px 0px 2px #0d0d0d;
 }
 
 /** FOOTER **/
