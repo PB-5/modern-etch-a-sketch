@@ -3,48 +3,47 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
+    <link rel="icon" href="favicon.png">
     <link rel="stylesheet" href="style.css">
-  <!--  <script src="script.js" defer></script> -->
+    <script src="script.js" defer></script>
 </head>
 
   <body>
-
          <header class="header">
               <h1 class="title">Etch-a-Sketch</h1>
-           <!-- <h4 class="sub-title">MODERNISED</h4> -->
+         <!-- <h4 class="sub-title">MODERNISED</h4> -->
          </header>
   
   <!-- flexbox settings column and put a grid next to it with a gap -->
   <main class="main">     
         <div class="settings-panel">
-              <label for="color-picker" title="Select Color">
-                  <input id="color-picker" type="color" value="#000000">
+              <label for="color" title="Select Color">
+                  <input id="color-picker" type="color" value="#000000" class>
               </label>
               <label for="randomBTN" title="Random Colors">
-                  <button id="randomBTN" class><img src="buttons/rainbow-btn.png"></button> 
+                  <button class="randomBTN" class><img src="buttons/rainbow-btn.png"></button> 
               </label>
               <label for="eraserBTN" title="Erase Paint">
-                  <button id="eraserBTN" class><img src="buttons/eraser-btn.png"></button>
+                  <button class="eraserBTN" class><img src="buttons/eraser-btn.png"></button>
               </label>
               <label for="clearBTN" title="Clear Canvas">
-                  <button id="clearBTN" class>CLEAR</button>
+                  <button class="clearBTN" class>CLEAR</button>
               </label>
               <label for="gridBTN" title="Display Grid">
-                  <button id="gridBTN" class>GRID</button>
+                  <button onclick="toggleGrid()" class="gridBTN" class>GRID</button>
               </label>
         </div>
 
-        <div class="grid-container">
-            <div id="grid" class="grid">
-                <div class="canvas-size-display"></div>
+        <div class="grid-container"> 
+            <div id="grid" class="grid"></div>
                 <input id="gridSlider" type="range" value="16" min="1" max="64">
-            </div>     
+                <div id="sizeValue" class="sizeText">16 x 16</div> 
         </div>
         
   </main>
 
   <div class="footer">
-    <span>Created by Patryk Berkowicz</span>
+    <span>Created by <a href="https://github.com/PB-5" target="_blank">Patryk Berkowicz</a></span>
   </div>
 
   </body>
