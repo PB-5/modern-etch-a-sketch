@@ -1,7 +1,7 @@
 
-let defaultCOLOR = '#333333'
-let defaultMODE = 'color'
-let defaultSIZE = 16
+const defaultCOLOR = '#333333'
+const defaultMODE = 'color'
+const defaultSIZE = 16
 
 let currentCOLOR = defaultCOLOR
 let currentMODE = defaultMODE
@@ -20,8 +20,6 @@ function setCurrentSize(newSize) {
     currentSIZE = newSize
 }
 
-///////////////////////////////////////////
-
 const colorPicker = document.getElementById('color-picker');
 const rainbowButton = document.querySelector('.randomBTN');
 const eraserButton = document.querySelector('.eraserBTN');
@@ -29,16 +27,17 @@ const clearButton = document.querySelector('.clearBTN');
 const gridButton = document.querySelector('.gridBTN');
 const gridSlider = document.getElementById('gridSlider');
 const grid = document.getElementById('grid');
-const sizeValue = document.querySelector('.canvas-size-display');
+const sizeValue = document.getElementById('sizeValue');
 
 colorPicker.oninput = (e) => setCurrentColor(e.target.value);
+colorPicker.onclick = () => setCurrentMode('color')
 rainbowButton.onclick = () => setCurrentMode('random');
 eraserButton.onclick = () => setCurrentMode('eraser');
 clearButton.onclick = () => reloadGrid()
 gridSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 gridSlider.onchange = (e) => changeSize(e.target.value);
 
-let mouseDown = false
+let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
@@ -48,24 +47,25 @@ function changeSize(value) {
     reloadGrid()
   }
 
-//function updateSizeValue(value) {
-   // 
-//}
+function updateSizeValue(value) {
+  sizeValue.innerHTML = `${value} x ${value}`
+}
 
 function reloadGrid() {
     clearGrid()
-    setupGrid(currentSize)
+    setupGrid(currentSIZE)
   }
   
   function clearGrid() {
     grid.innerHTML = ''
   }
 
-  document.querySelector('.gridBTN').addEventListener('click', (e) => {
-    const size = (e.target.value) ? '1px' : '0';
-    document.documentElement.style.setProperty('--grid-size', size);
-});
-
+  function toggleGrid() {
+    let canvas = document.getElementById('grid');
+    let cellGrid = canvas.querySelectorAll("div");
+    cellGrid.forEach((e) => e.classList.toggle("grid-element"));
+    canvas.classList.toggle("grid-OFF");
+  }
 
 function setupGrid(size) {
   grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
@@ -82,33 +82,33 @@ function setupGrid(size) {
 
 function changeColor(e) {
   if (e.type === 'mouseover' && !mouseDown) return
-  if (currentMode === 'rainbow') {
+  if (currentMODE === 'random') {
     const randomR = Math.floor(Math.random() * 256)
     const randomG = Math.floor(Math.random() * 256)
     const randomB = Math.floor(Math.random() * 256)
     e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
-  } else if (currentMode === 'color') {
-    e.target.style.backgroundColor = currentColor
-  } else if (currentMode === 'eraser') {
+  }  else if (currentMODE === 'color') {
+    e.target.style.backgroundColor = currentCOLOR
+  } else if (currentMODE === 'eraser') {
     e.target.style.backgroundColor = '#fefefe'
-  }
+  } 
 }
 
 function activateButton(newMode) {
-  if (currentMode === 'rainbow') {
-    rainbowBtn.classList.remove('active')
-  } else if (currentMode === 'color') {
-    colorBtn.classList.remove('active')
-  } else if (currentMode === 'eraser') {
-    eraserBtn.classList.remove('active')
+  if (currentMODE === 'random') {
+    rainbowButton.classList.remove('active')
+  }  else if (currentMODE === 'color') {
+    colorPicker.classList.remove('active')
+  } else if (currentMODE === 'eraser') {
+    eraserButton.classList.remove('active')
   }
 
-  if (newMode === 'rainbow') {
-    rainbowBtn.classList.add('active')
-  } else if (newMode === 'color') {
-    colorBtn.classList.add('active')
+  if (newMode === 'random') {
+    rainbowButton.classList.add('active')
+   } else if (newMode === 'color') {
+    colorPicker.classList.add('active')
   } else if (newMode === 'eraser') {
-    eraserBtn.classList.add('active')
+    eraserButton.classList.add('active')
   }
 }
 
