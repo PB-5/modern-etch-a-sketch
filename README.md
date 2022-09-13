@@ -16,8 +16,8 @@ The goal of this repo is to practice the following skill sets:
 
 > Desktop 
 
-![Desktop screenshot](desktop.JPG)
+<img src="desktop.JPG" width="90%" alt="">
 
 > Example
 
-![Desktop screenshot](example.jpg)
+<img src="example.jpg" width="90%" alt="">
