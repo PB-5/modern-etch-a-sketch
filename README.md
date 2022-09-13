@@ -16,8 +16,8 @@ The goal of this repo is to practice the following skill sets:
 
 > Desktop 
 
-<img src="imgs/desktop.JPG" width="90%" alt="">
+<img src="imgs/desktop.JPG" width="60%" alt="">
 
 > Example
 
-<img src="imgs/example.jpg" width="90%" alt="">
+<img src="imgs/example.jpg" width="60%" alt="">
