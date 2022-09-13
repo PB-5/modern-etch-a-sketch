@@ -1,4 +1,4 @@
-# My modern version Etch-A-Sketch 
+# My Etch-A-Sketch Modern Version
 
 The goal of this repo is to practice the following skill sets:
 
