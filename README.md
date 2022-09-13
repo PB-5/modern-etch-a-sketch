@@ -14,5 +14,10 @@ The goal of this repo is to practice the following skill sets:
 
 ## Screenshots
 
+> Desktop 
+
 ![Desktop screenshot](desktop.JPG)
 
+> Example
+
+![Desktop screenshot](example.jpg)
